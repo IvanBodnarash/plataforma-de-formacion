@@ -1,0 +1,20 @@
+.content-container {
+    margin: 20px 120px;
+}
+
+.main-layout {
+    background-color: #b48383;
+    min-height: 100vh;
+}
+
+.list-container {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 15px;
+    max-height: 350px;
+}
+
+/* .list-container li {
+    
+} */
