@@ -1,15 +1,31 @@
+import { useContext } from "react";
+import { traducciones } from "../data/dictionary";
+import LanguageContext from "../context/LanguageContext";
+
 export default function Home() {
+  const { lang } = useContext(LanguageContext);
+  const langStorage = localStorage.getItem("lang");
+  const t = traducciones[langStorage];
   return (
-    <div className="h-100 d-flex flex-column gap-4 justify-content-center text-light">
-      <h1 className="">Home page</h1>
-      <p className="fs-4">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempora
-        inventore a consequatur officiis debitis, doloremque atque fugit nobis
-        praesentium voluptas vitae rerum, dolores possimus labore quos dolorum
-        repellendus ducimus earum exercitationem mollitia perspiciatis corrupti
-        similique quas corporis! Odio ipsam commodi beatae quaerat, rerum minus
-        voluptatibus tempora nam, esse asperiores incidunt!
-      </p>
+    <div className="home-page-container text-light">
+      <h1 className="fs-1">🎓 {t.welcomeContent.header1}</h1>
+      <div className="fs-5 d-flex flex-row gap-4">
+        <div className="w-50">{t.welcomeContent.description1}</div>
+        <ul className="list-unstyled">
+          {t.welcomeContent.list1.map((li) => (
+            <li key={li}>{li}</li>
+          ))}
+        </ul>
+      </div>
+      <h1 className="fs-1">🚀 {t.welcomeContent.header2}</h1>
+      <div className="fs-5 d-flex flex-row gap-4">
+        <div className="w-50">{t.welcomeContent.description1}</div>
+        <ul className="list-unstyled">
+          {t.welcomeContent.list1.map((li) => (
+            <li key={li}>{li}</li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }

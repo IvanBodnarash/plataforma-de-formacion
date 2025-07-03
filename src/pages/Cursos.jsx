@@ -1,10 +1,17 @@
 import { Link, useSearchParams } from "react-router";
 import cursos from "../data/cursos";
+import { traducciones } from "../data/dictionary";
+import { useContext } from "react";
+import LanguageContext from "../context/LanguageContext";
 
 export default function Cursos() {
   const [searchParams, setSearchParams] = useSearchParams("");
   const categoriaFilter = searchParams.get("category");
   const nivelFilter = searchParams.get("nivel");
+
+  const { lang } = useContext(LanguageContext);
+  const langStorage = localStorage.getItem("lang");
+  const t = traducciones[langStorage];
 
   const filteredUsers = cursos.filter((curso) => {
     const matchedCategory = categoriaFilter
@@ -58,7 +65,7 @@ export default function Cursos() {
 
   return (
     <div className="text-light">
-      <h1>Nuestros Cursos</h1>
+      <h1>{t.courseList}</h1>
       <h5 className="mt-4">Filtrar por:</h5>
       <h6 className="mt-2">Categoria</h6>
       <div className="d-flex flex-row gap-2">

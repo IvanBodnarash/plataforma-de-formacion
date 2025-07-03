@@ -1,5 +1,5 @@
 .content-container {
-    margin: 20px 120px;
+    padding: 20px 120px;
 }
 
 .main-layout {
@@ -13,4 +13,11 @@
     flex-wrap: wrap;
     margin-top: 15px;
     max-height: 350px;
+}
+
+.home-page-container {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
